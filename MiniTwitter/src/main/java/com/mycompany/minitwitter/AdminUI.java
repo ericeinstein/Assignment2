@@ -67,6 +67,11 @@ public class AdminUI extends javax.swing.JFrame {
         });
 
         showStats.setText("Show Stats");
+        showStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showStatsActionPerformed(evt);
+            }
+        });
 
         Root.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -137,8 +142,14 @@ public class AdminUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RootAncestorAdded
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        ShowGoodness newGood = new ShowGoodness();
+        newGood.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void showStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showStatsActionPerformed
+        ShowStats newStats = new ShowStats();
+        newStats.setVisible(true);
+    }//GEN-LAST:event_showStatsActionPerformed
 
     /**
      * @param args the command line arguments
