@@ -124,7 +124,10 @@ public class AddUser extends javax.swing.JFrame {
     }//GEN-LAST:event_groupIDActionPerformed
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
-        User newUser = new User(tempUserID, tempGroupID);
+        if (tempUserID != "" && tempGroupID != "")
+        {
+            User newUser = new User(tempUserID, tempGroupID);
+        }
         dispose();
     }//GEN-LAST:event_EnterActionPerformed
 

@@ -10,8 +10,8 @@ package com.mycompany.minitwitter;
  */
 public class User 
 {
-    private String userID;
-    private String groupID;
+    final private String userID;
+    final private String groupID;
     
     User(String inputUserID , String inputGroupID)
     {
@@ -23,5 +23,15 @@ public class User
     {
         AddUser newUser = new AddUser();
         newUser.setVisible(true);
+    }
+    
+    public String getUserID()
+    {
+        return userID;
+    }
+    
+    public String getGroupID()
+    {
+        return groupID;
     }
 }

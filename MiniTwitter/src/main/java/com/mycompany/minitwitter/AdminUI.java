@@ -33,8 +33,8 @@ public class AdminUI extends javax.swing.JFrame {
         goUserView = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         showStats = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        directory = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Root = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,12 +63,16 @@ public class AdminUI extends javax.swing.JFrame {
 
         showStats.setText("Show Stats");
 
-        directory.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        Root.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                RootAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
         });
-        jScrollPane1.setViewportView(directory);
+        jScrollPane2.setViewportView(Root);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,8 +80,8 @@ public class AdminUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,8 +110,8 @@ public class AdminUI extends javax.swing.JFrame {
                         .addComponent(showStats))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,6 +128,10 @@ public class AdminUI extends javax.swing.JFrame {
     private void addGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroupActionPerformed
         Group.startGroupUI();
     }//GEN-LAST:event_addGroupActionPerformed
+
+    private void RootAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_RootAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RootAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -161,12 +169,12 @@ public class AdminUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTree Root;
     private javax.swing.JButton addGroup;
     private javax.swing.JButton addUser;
-    private javax.swing.JList<String> directory;
     private javax.swing.JButton goUserView;
     private javax.swing.JButton jButton4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton showStats;
     // End of variables declaration//GEN-END:variables

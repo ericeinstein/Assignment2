@@ -124,7 +124,10 @@ public class AddGroup extends javax.swing.JFrame {
     }//GEN-LAST:event_parentGroupIDActionPerformed
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
-        Group newGroup = new Group(tempGroupID, tempParentGroupID);
+        if (tempGroupID != "" && tempParentGroupID != "")
+        {
+            Group newGroup = new Group(tempGroupID, tempParentGroupID);
+        }
         dispose();
     }//GEN-LAST:event_EnterActionPerformed
 

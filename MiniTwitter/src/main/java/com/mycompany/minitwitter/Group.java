@@ -10,8 +10,8 @@ package com.mycompany.minitwitter;
  */
 public class Group 
 {
-    private String groupID;
-    private String parentGroupID;
+    final private String groupID;
+    final private String parentGroupID;
     
     Group(String inputGroupID , String inputParentGroupID)
     {
@@ -23,5 +23,16 @@ public class Group
     {
         AddGroup newGroup = new AddGroup();
         newGroup.setVisible(true);
+    }
+    
+    
+    public String getGroupID()
+    {
+        return groupID;
+    }
+    
+    public String getParentGroupID()
+    {
+        return parentGroupID;
     }
 }
