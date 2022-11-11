@@ -9,7 +9,8 @@ package com.mycompany.minitwitter;
  * @author erichuang
  */
 public class AdminUI extends javax.swing.JFrame {
-
+    private int numUsers = 0;
+    private int numGroups = 0;
     /**
      * Creates new form AdminUI
      */
@@ -31,15 +32,25 @@ public class AdminUI extends javax.swing.JFrame {
         addGroup = new javax.swing.JButton();
         goUserView = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        showStats = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         directory = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         addUser.setText("Add User");
+        addUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addUserActionPerformed(evt);
+            }
+        });
 
         addGroup.setText("Add Group");
+        addGroup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addGroupActionPerformed(evt);
+            }
+        });
 
         goUserView.setText("User View");
         goUserView.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +61,7 @@ public class AdminUI extends javax.swing.JFrame {
 
         jButton4.setText("NiceWords");
 
-        jButton5.setText("jButton5");
+        showStats.setText("Show Stats");
 
         directory.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -66,7 +77,7 @@ public class AdminUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,7 +85,7 @@ public class AdminUI extends javax.swing.JFrame {
                     .addComponent(addGroup)
                     .addComponent(goUserView)
                     .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(showStats))
                 .addGap(143, 143, 143))
         );
         layout.setVerticalGroup(
@@ -92,7 +103,7 @@ public class AdminUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5))
+                        .addComponent(showStats))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -103,9 +114,16 @@ public class AdminUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void goUserViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goUserViewActionPerformed
-        UserUI newUser = new UserUI();
-        newUser.setVisible(true);
+        
     }//GEN-LAST:event_goUserViewActionPerformed
+
+    private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
+        User.startUserUI();
+    }//GEN-LAST:event_addUserActionPerformed
+
+    private void addGroupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGroupActionPerformed
+        Group.startGroupUI();
+    }//GEN-LAST:event_addGroupActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,8 +166,8 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JList<String> directory;
     private javax.swing.JButton goUserView;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton showStats;
     // End of variables declaration//GEN-END:variables
 }
