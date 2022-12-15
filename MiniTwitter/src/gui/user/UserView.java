@@ -7,9 +7,6 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-/**
- * The user details page.
- */
 public class UserView extends JFrame {
     private final User user;
 
@@ -27,7 +24,8 @@ public class UserView extends JFrame {
         add(followingPanel, BorderLayout.NORTH);
         add(feedPanel);
 
-        // Ensure that when we close this view, we remove the watchers from the user view.
+        // Ensure that when we close this view, we remove the watchers from the user
+        // view.
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent windowEvent) {

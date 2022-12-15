@@ -6,9 +6,6 @@ import gui.user.UserView;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * The main control panel.
- */
 public class ControlView extends JFrame {
     public ControlView() {
         setResizable(false);
