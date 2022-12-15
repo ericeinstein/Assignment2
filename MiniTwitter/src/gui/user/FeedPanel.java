@@ -23,9 +23,6 @@ public class FeedPanel extends JPanel {
         buildUI();
     }
 
-    /**
-     * Remove this observer from all current user feeds.
-     */
     public void removeAllWatchers() {
         for (User following : followingWatching) {
             following.getFeed().removeWatcher(this::refresh);
@@ -33,9 +30,6 @@ public class FeedPanel extends JPanel {
         followingWatching.clear();
     }
 
-    /**
-     * Register watchers on all following user feeds so that we can refresh if they are changed.
-     */
     private void updateWatchers() {
         removeAllWatchers();
 
@@ -84,13 +78,15 @@ public class FeedPanel extends JPanel {
             if (isValidLength)
                 user.getFeed().addTweet(tweet);
             else
-                JOptionPane.showMessageDialog(null, "Tweet must be less than " + TweetLengthValidatorVisitor.MAX_TWEET_LENGTH + " characters long.");
+                JOptionPane.showMessageDialog(null, "Tweet must be less than "
+                        + TweetLengthValidatorVisitor.MAX_TWEET_LENGTH + " characters long.");
         });
         add(addTweetButton);
 
         long creationTimeMs = user.getCreationTimeMs();
         long lastUpdateTimeMs = user.getFeed().getLastUpdateTimeMs();
-        JTextArea timestampText = new JTextArea("User creation time: " + creationTimeMs + "\nLast update time: " + lastUpdateTimeMs);
+        JTextArea timestampText = new JTextArea(
+                "User creation time: " + creationTimeMs + "\nLast update time: " + lastUpdateTimeMs);
         add(timestampText);
     }
 
